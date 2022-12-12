@@ -1,8 +1,17 @@
+import InputHook from "./InputHook";
+import InputRenderProp from "./InputRenderProp";
 
 function App() {
   return (
     <div className="App">
-      <h1>Hello World</h1>
+      <div className="col">
+        <h3>Render Prop</h3>
+        <InputRenderProp/>
+      </div>
+      <div className="col">
+        <h3>Hooks</h3>
+        <InputHook/>
+      </div>
     </div>
   );
 }
