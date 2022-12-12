@@ -17,9 +17,7 @@ function Fahrenheit({ value = 0 }) {
 /**  
  * The component has two main parts:
  * - A state controlled input
- * - Render the props, which we pass down the current state value
- *    - And the components rendered can consume the state value,
- *      without needing to lift up the state.
+ * - Render the props via children (the 100% props render version is on the App_prop_render.js file)
  */
 const Input  = (props) => {
 
@@ -33,7 +31,7 @@ const Input  = (props) => {
         onChange={({target}) => setValue(target.value)}
         placeholder="Temp in ºC"
       />
-      {props.render(value)}
+      {props.children(value)}
     </>
   )
 }
@@ -42,14 +40,16 @@ function App() {
   return (
     <div className="App">
       <h1>☃️ Temperature Converter 🌞</h1>
-      <Input render={
-        (value) => (
-          <>
-            <Kelvin value={value}/>
-            <Fahrenheit value={value}/>
-          </>
-        )
-      } />
+      <Input>
+        {
+          (value) => (
+            <>
+              <Kelvin value={value}/>
+              <Fahrenheit value={value}/>
+            </>
+          )
+        }
+      </Input>
     </div>
   );
 }
