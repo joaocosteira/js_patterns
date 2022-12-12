@@ -1,0 +1,2 @@
+# Render Props Pattern:
+The idea is fairly simple to understand: instead of passing to a component variables to be rendered, we pass down pieces of "html" a.k.a jsx, so those pieces of data are instantly rendered within our component and this pattern makes our components much more reusable.
