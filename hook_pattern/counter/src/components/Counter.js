@@ -1,7 +1,10 @@
 import React from 'react';
 import Count from './Count';
 import Width from './Width';
-
+/**  
+ * 
+ * Original Version: Class Based
+ */
 class Counter extends React.Component{
 
     constructor(){
