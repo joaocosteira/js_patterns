@@ -1,8 +1,36 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useKeyPress } from "../hooks";
 
 const Input =  () => {
 
     const [value,setValue] = useState('');
+
+    const pressedQ = useKeyPress('q')
+    const pressedW = useKeyPress('w')
+    const pressedL = useKeyPress('l')
+
+    useEffect(() => {
+        if(pressedQ){
+            console.log('You Pressed Q')
+        }
+    },[pressedQ])
+
+    useEffect(() => {
+        if(pressedW){
+            console.log('You Pressed W')
+        }
+    },[pressedW])
+
+    useEffect(() => {
+        if(pressedL){
+            console.log('You Pressed L')
+        }
+    },[pressedL])
+
+
+    // useEffect(() => {
+    //     console.log(`Current value: '${value}'`)
+    // }, [value])
 
     return(
         <>
