@@ -3,12 +3,17 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import { ApolloClient, InMemoryCache } from 'apollo-boost';
-import { ApolloProvider } from '@apollo/react-hooks';
+import { ApolloProvider, createHttpLink } from '@apollo/react-hooks';
+
+
+const httpLink = createHttpLink({
+  uri: 'http://localhost:4000/'
+});
 
 const client = new ApolloClient({
-  link: "http://localhost:4000/",
+  link: httpLink,
   cache: new InMemoryCache()
-});
+})
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
